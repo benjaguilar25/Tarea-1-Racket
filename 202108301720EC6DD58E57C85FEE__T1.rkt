@@ -55,6 +55,7 @@ RUT: 20.428.923-9
 
 ;; Parte d)
 ;; fold :: (Number Number Number A -> A) A SMatrix -> A
+;; Captura el esquema de recursión estructural asociado a SMatrix
 
 (define (fold f A SMatrix)
   (match SMatrix
@@ -64,6 +65,7 @@ RUT: 20.428.923-9
 
 ;; Parte e)
 ;; new-sum :: SMatrix -> Number
+;; Suma todos los elementos de una matriz dispersa usando la funcion fold
 
 (define (new-sum SMatrix)
   (fold (λ (r c v s) (+ v s)) 0 SMatrix))
@@ -71,6 +73,7 @@ RUT: 20.428.923-9
 
 ;; Parte f)
 ;; map-sm :: (Number -> Number) SMatrix -> SMatrix
+;; Aplica una funcion f a cada valor de una SMatrix usando fold
 
 (define (map-sm f SMatrix)
   (fold (λ (r c v s) (slot r c (f v) s)) (null-slot) SMatrix))
@@ -78,10 +81,13 @@ RUT: 20.428.923-9
   
 
 ;; Parte g)
+
+(define (aux SMatrix)
+  
 ;; normalize :: SMatrix -> SMatrix
 
 (define (normalize SMatrix)
-  (
+  (fold (λ (r c v s) (cond [])) (null-slot) SMatrix))
 
 
 ;; Parte h)
