@@ -34,8 +34,6 @@ RUT: 20.428.923-9
     [(null-slot) 0]
     [(slot r c v s) (+ v (sum s))]))
 
-
-
 ;; Parte c)
 
 
@@ -52,36 +50,24 @@ RUT: 20.428.923-9
                           [else (if (< c (cdr (dimension s)))
                                     (cons r (cdr (dimension s)))
                                     (cons r c))])]))
-
 ;; Parte d)
 ;; fold :: (Number Number Number A -> A) A SMatrix -> A
 
-(define (fold f A SMatrix)
-  (match SMatrix
-    [(null-slot) A]
-    [(slot r c v s) (f r c v (fold f A s))]))
 
 
 ;; Parte e)
 ;; new-sum :: SMatrix -> Number
 
-(define (new-sum SMatrix)
-  (fold (λ (r c v s) (+ v s)) 0 SMatrix))
 
 
 ;; Parte f)
 ;; map-sm :: (Number -> Number) SMatrix -> SMatrix
 
-(define (map-sm f SMatrix)
-  (fold (λ (r c v s) (slot r c (f v) s)) (null-slot) SMatrix))
-  
-  
+
 
 ;; Parte g)
 ;; normalize :: SMatrix -> SMatrix
 
-(define (normalize SMatrix)
-  (
 
 
 ;; Parte h)
